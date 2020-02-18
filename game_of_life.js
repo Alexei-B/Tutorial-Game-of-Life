@@ -9,10 +9,6 @@ function coordinate_index(x, y) {
     return (y % height) * width + (x % width);
 }
 
-function mid_point() {
-    return (height / 2) * width + width / 2;
-}
-
 function draw_line(x, y, target_x, target_y) {
     while (x != target_x || y != target_y) {
         buffers[target_buffer][coordinate_index(x, y)] = 1;
@@ -111,9 +107,12 @@ function initialize_from_document() {
 }
 
 function set_default_data() {
-    for (let i = 0; i < 10; ++i) {
-        buffers[0][i + mid_point() - 5] = 1;
-    }
+    draw_line(
+        Math.round(width / 2 - 5),
+        Math.round(height / 2 - 5),
+        Math.round(width / 2 + 5),
+        Math.round(height / 2 + 5)
+    );
 }
 
 function bind_event_listener() {

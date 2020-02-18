@@ -7,7 +7,6 @@
 canvas {
     position: fixed;
     height: 100%;
-    margin: auto 0;
     image-rendering: pixelated;
 }
 
